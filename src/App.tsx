@@ -1,6 +1,6 @@
+import React, { useCallback, useMemo, useState } from "react";
 import { Flex, Heading, Button } from "@chakra-ui/react";
-import { useCallback, useMemo, useState } from "react";
-import { parseISO, isBefore, startOfDay, isToday } from "date-fns";
+import { parseISO, isToday } from "date-fns";
 
 const useMeds = () => {
   const [lastTaken, set] = useState(() =>
@@ -25,7 +25,7 @@ const useMeds = () => {
 
   return {
     taken,
-    setTaken
+    setTaken,
   };
 };
 
@@ -33,7 +33,6 @@ export default function App() {
   const { taken, setTaken } = useMeds();
 
   const onClick = useCallback(() => {
-    // console.log("taken =>", taken);
     setTaken();
   }, [setTaken]);
 
